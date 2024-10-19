@@ -1,0 +1,56 @@
+.rs-header {
+	// .rs-header__container
+	&__container {
+	}
+
+	// .rs-header__wrapper
+	&__wrapper {
+	}
+
+	// .rs-header__logo
+	&__logo {
+	}
+
+	// .rs-header__menu
+	&__menu {
+		.menu {
+			// .menu__icon
+			&__icon {
+				// .menu__icon_svg
+				&_svg {
+				}
+
+				// .menu__icon_text
+				&_text {
+				}
+			}
+
+			// .menu__block
+			&__block {
+			}
+
+			// .menu__body
+			&__body {
+			}
+
+			// .menu__list
+			&__list {
+			}
+
+			// .menu__dropdown
+			&__dropdown {
+				// .menu__dropdown_list
+				&_list {
+				}
+			}
+
+			// .menu__contact
+			&__contact {
+			}
+		}
+	}
+
+	// .rs-header__search
+	&__search {
+	}
+}
