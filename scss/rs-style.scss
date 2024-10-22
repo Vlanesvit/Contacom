@@ -78,8 +78,10 @@ body {
 	padding-left: $paddingContainer;
 	padding-right: $paddingContainer;
 
-	@media (max-width: 991.98px) {
+	@media (max-width: 1439.98px) {
 		$paddingContainer: 16px;
+		padding-left: $paddingContainer;
+		padding-right: $paddingContainer;
 		$maxWidthContainer: 100%;
 	}
 }

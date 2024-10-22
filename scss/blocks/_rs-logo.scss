@@ -5,10 +5,60 @@
 
 	// .rs-logo__wrapper
 	&__wrapper {
+		position: relative;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			height: 1px;
+			width: 100vw;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: #cdcdcd;
+			z-index: 10;
+		}
+
+		&::before {
+			top: 0;
+		}
+
+		&::after {
+			bottom: 0;
+		}
+	}
+
+	&__block {
+		display: flex;
+		position: relative;
+
+		@media (min-width: 991.98px) {
+			&::before {
+				content: "";
+				position: absolute;
+				height: 1px;
+				width: 100vw;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				background-color: #cdcdcd;
+				z-index: 10;
+			}
+		}
 	}
 
 	// .rs-logo__slider
 	&__slider {
+		// width: calc(100% - (284px - 33px));
+
+		@media (min-width: 991.98px) {
+			height: 658px;
+		}
+
+		@media (max-width: 991.98px) {
+			overflow: visible;
+			width: 100%;
+		}
 	}
 
 	// .rs-logo__swiper
@@ -17,21 +67,72 @@
 
 	// .rs-logo__slide
 	&__slide {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-left: 1px solid #cdcdcd;
 	}
 
 	// .rs-logo__img
 	&__img {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 50px;
+
+		@media (max-width: 1439.98px) {
+			padding: 40px;
+		}
+
+		@media (max-width: 1169.98px) {
+			padding: 30px;
+		}
+
+		@media (max-width: 991.98px) {
+			padding: 20px;
+		}
 	}
 
 	// .rs-logo__navigation
 	&__navigation {
+		flex-direction: column;
+		background-color: #fff;
+		position: relative;
+		z-index: 10;
+		gap: 0px;
+		margin-right: -33px;
+
+		@media (max-width: 1439.98px) {
+			margin-right: -16px;
+		}
+
+		@media (max-width: 991.98px) {
+			display: none;
+		}
+	}
+
+	// .rs-logo__button-prev
+	&__button-prev,
+	&__button-next {
+		width: 100%;
+		min-width: 284px;
+		height: 50%;
+		margin: 0;
+
+		@media (max-width: 1439.98px) {
+			min-width: 200px;
+		}
 	}
 
 	// .rs-logo__button-prev
 	&__button-prev {
+		background-color: var(--tertiary-color);
 	}
 
 	// .rs-logo__button-next
 	&__button-next {
+		background-color: var(--primary-color);
 	}
 }

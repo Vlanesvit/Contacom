@@ -1,3 +1,6 @@
+/* ====================================
+Меню
+==================================== */
 function menuFunction() {
 	const menus = document.querySelectorAll('.rs-header__menu');
 
@@ -11,12 +14,7 @@ function menuFunction() {
 					// Открываем меню
 					btn.addEventListener("click", function (e) {
 						e.preventDefault();
-
-						if (document.documentElement.classList.contains("menu-open")) {
-							menuClose("menu-open");
-						} else {
-							menuOpen("menu-open")
-						}
+						menuToggle("menu-open");
 					});
 				});
 			}
@@ -34,33 +32,27 @@ function menuFunction() {
 			const menuItemDropdowns = menu.querySelectorAll('.menu__list .menu__dropdown');
 			const menuItemDropdownsMenu = menu.querySelectorAll('.menu__list .menu__dropdown_list');
 
-			// Блок с контактами
+			// Проходим по каждому элементу <li>
+			menuItem.forEach(li => {
+				const link = li.querySelector('a');
+
+				if (link) {
+					const linkText = link.textContent;
+					const span = document.createElement('span');
+					span.textContent = linkText;
+					link.textContent = '';
+					link.appendChild(span);
+				}
+			});
+
+			// Блоки, которые копируются во вкладки
 			const contactBlock = menu.querySelector('.menu__contact');
-
-			// 0-ой уровень
-			const menuItemDropdownsNull = menu.querySelectorAll('.menu__list > .menu__dropdown');
-			const menuItemDropdownsMenuNull = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list');
-
-			// 1-ый уровень
-			const menuItemDropdownsFirst = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown');
-			const menuItemDropdownsMenuFirst = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list');
-
-			// 2-ой уровень
-			const menuItemDropdownsTwo = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown');
-			const menuItemDropdownsMenuTwo = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list');
-
-			// 3-ий уровень
-			const menuItemDropdownsThree = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown');
-			const menuItemDropdownsMenuThree = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list');
-
-			if (contactBlock) {
-				menuItemDropdownsMenu.forEach(menuDropdown => {
-					// Клонируем блок .menu__contact
+			menuItemDropdownsMenu.forEach(menuDropdown => {
+				if (contactBlock) {
 					const contactClone = contactBlock.cloneNode(true);
-					// Вставляем клон в конец блока .menu__dropdown_list
 					menuDropdown.appendChild(contactClone);
-				});
-			}
+				}
+			});
 
 			// Добавляем иконки в пункты с выпадающим меню
 			menuItemDropdowns.forEach(item => {
@@ -70,48 +62,70 @@ function menuFunction() {
 				item.append(icon);
 			});
 
+			// Добавляем иконки в пункты с выпадающим меню
+			menuItemDropdownsMenu.forEach(list => {
+				let back = document.createElement('li');
+				back.classList.add('menu-item', 'switch-back');
+				list.prepend(back);
+
+				let btn = document.createElement('a');
+				btn.setAttribute('href', '#');
+
+				// Найдем элемент .menu__dropdown и проверим наличие <a>
+				const menuLink = back.closest('.menu__dropdown')?.querySelector('a');
+
+				if (menuLink) {
+					btn.textContent = menuLink.textContent; // Добавляем текст только если <a> найден
+				} else {
+					btn.textContent = 'Назад'; // Запасной текст
+				}
+
+				back.prepend(btn);
+			});
+
 			// Функция для отдельных уровней меню, чтобы открывался только один пункт, а открытые закрывались, кроме тех, кто выше уровнем
-			function openLvlMenu(li, ul) {
-				li.forEach(item => {
-					const menuItemIcons = item.querySelector('.menu__dropdown_arrow');
-					const menuSwitch = menu.querySelector('.switch-back');
+			function openLvlMenu() {
+				document.addEventListener('click', (e) => {
+					if (e.target.classList.contains('menu__dropdown_arrow')) {
+						const menuItemIcons = e.target;
+						const currentDropdown = menuItemIcons.closest('.menu__dropdown');
+						const parentDropdown = currentDropdown?.parentElement.closest('.menu__dropdown');
+						currentDropdown.classList.add('_open-menu');
 
-					// Раскрываем меню при клике на иконку
-					menuItemIcons.addEventListener('click', (e) => {
-						e.preventDefault();
+						if (parentDropdown) {
+							parentDropdown.classList.add('_block-menu');
+						}
 
-						// Проходимся по всем пунктам и ищем активные классы, убираем их и добавляем активный класс кликнутому пункту
-						if (!menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
-							li.forEach(itemDrop => {
-								if (itemDrop.classList.contains('_open-menu')) {
-									itemDrop.classList.remove('_open-menu')
-									document.documentElement.classList.remove('dropdown-menu-open');
-								}
-							});
-							menuItemIcons.closest('.menu__dropdown').classList.add('_open-menu');
+						if (!document.documentElement.classList.contains('dropdown-menu-open')) {
 							document.documentElement.classList.add('dropdown-menu-open');
-						} else if (menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
-							menuItemIcons.closest('.menu__dropdown').classList.remove('_open-menu');
+						}
+					}
+
+					// Клик на кнопку "Назад" или её дочерние элементы
+					const switchBackBtn = e.target.closest('.switch-back');
+					if (switchBackBtn) {
+						const currentDropdown = switchBackBtn.closest('.menu__dropdown');
+						const parentDropdown = currentDropdown?.parentElement.closest('.menu__dropdown');
+						currentDropdown.classList.remove('_open-menu');
+
+						if (parentDropdown) {
+							parentDropdown.classList.remove('_block-menu');
+						}
+
+						if (!document.documentElement.classList.contains('dropdown-menu-open')) {
+							document.documentElement.classList.add('dropdown-menu-open');
+						}
+
+						// Получаем все элементы с классом _open-menu из массива menuItemDropdowns
+						const openMenus = Array.from(menuItemDropdowns).filter(item => item.classList.contains('_open-menu'));
+						// Если таких элементов 0 или меньше, убираем класс у document.documentElement
+						if (openMenus.length <= 0) {
 							document.documentElement.classList.remove('dropdown-menu-open');
 						}
-					});
-
-					menuSwitch.addEventListener('click', (e) => {
-						e.preventDefault();
-						item.closest('.menu__dropdown').classList.remove('_open-menu');
-						document.documentElement.classList.remove('dropdown-menu-open');
-					})
+					}
 				});
 			}
-
-			// Пункты 0-го уровня меню
-			openLvlMenu(menuItemDropdownsNull, menuItemDropdownsMenuNull)
-			// Пункты 1-го уровня меню
-			openLvlMenu(menuItemDropdownsFirst, menuItemDropdownsMenuFirst)
-			// Пункты 2-го уровня меню
-			openLvlMenu(menuItemDropdownsThree, menuItemDropdownsMenuTwo)
-			// Пункты 3-го уровня меню
-			openLvlMenu(menuItemDropdownsTwo, menuItemDropdownsMenuThree)
+			openLvlMenu()
 
 			// При клике на бургер убираем открые меню и активные класс
 			document.addEventListener("click", function (e) {
@@ -125,14 +139,11 @@ function menuFunction() {
 	}
 	menuInit()
 
-	//========================================================================================================================================================
 	// Функции открытия меню с блокировкой скролла
 	function menuOpen(classes) {
-		bodyLock();
 		document.documentElement.classList.add(classes);
 	}
 	function menuClose(classes) {
-		bodyUnlock();
 		document.documentElement.classList.remove(classes);
 	}
 	function menuToggle(classes) {
@@ -227,27 +238,9 @@ Header при скролле
 function headerScroll() {
 	const header = document.querySelector('.rs-header');
 	const headerTag = document.querySelector('header');
-	let lastScrollTop = 0;
 
 	function headerClassAdd() {
 		header.classList.toggle('_header-scroll', window.scrollY > 0)
-		let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-		// Проверка на присутствие класса для бургер-меню. Если он есть, то шапка не скрывается
-		if (document.documentElement.classList.contains("menu-open")) {
-			header.style.transform = "0px";
-		}
-		else {
-			// Скрытие шапки
-			if (scrollTop > lastScrollTop) {
-				header.style.transform = `translateY(-${header.clientHeight + 1}px)`;
-				header.classList.remove('_header-show');
-			} else {
-				header.style.transform = "translateY(0px)";
-				header.classList.add('_header-show');
-			}
-		}
-		lastScrollTop = scrollTop;
 	}
 
 	window.addEventListener('scroll', function () {

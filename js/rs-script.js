@@ -41,75 +41,60 @@ function addLoadedClass() {
 }
 addLoadedClass()
 
-/* ====================================
-Бегущая строка
-==================================== */
-function marquee() {
-	const marquees = document.querySelectorAll('.marquee');
+//========================================================================================================================================================
+function fadeBlock(item) {
+	const block = document.querySelector(item);
+	if (block) {
+		let ticking = false;
 
-	if (marquees.length > 0) {
-		marquees.forEach(marquee => {
-			const list = marquee.querySelector('ul');
-			const items = list.querySelectorAll('ul li');
+		// Функция, которая обновляет анимацию
+		const updateAnimation = () => {
+			const scrollPos = window.scrollY || window.pageYOffset;
+			const heroOpas = scrollPos / 1000;
+			const opacityValue = Math.max(0, Math.min(1, 1 - heroOpas)); // Ограничиваем значение между 0 и 1
 
-			let scrollAmount = 0; // Переменная для отслеживания текущего смещения
-			const speed = 1; // Скорость прокрутки бегущей строки
+			block.style.opacity = opacityValue;
+			block.style.transform = `translateY(${heroOpas * 100}%)`;
 
-			// Клонируем элементы для создания бесшовного эффекта
-			for (let i = 0; i < 5; i++) {
-				items.forEach(item => {
-					const clone = item.cloneNode(true);
-					list.appendChild(clone);
-				});
+			ticking = false;
+		};
+
+		// Обработчик скролла с requestAnimationFrame
+		window.addEventListener('scroll', function () {
+			if (!ticking) {
+				window.requestAnimationFrame(updateAnimation);
+				ticking = true;
 			}
-
-			function scrollMarquee() {
-				switch (true) {
-					case marquee.dataset.direction === "left":
-						scrollAmount -= speed;
-
-						const firstItem = list.firstElementChild;
-						const firstItemWidth = firstItem.getBoundingClientRect().width;
-
-						list.style.transform = `translateX(${scrollAmount}px)`;
-
-						if (firstItem.getBoundingClientRect().right <= 0) {
-							list.append(firstItem); // Перемещаем первый элемент в конец списка
-
-							// Пересчитываем смещение, чтобы сделать переход плавным
-							scrollAmount += firstItemWidth + parseFloat(getComputedStyle(firstItem).marginLeft);
-							list.style.transform = `translateX(${scrollAmount}px)`;
-						}
-						break;
-
-					case marquee.dataset.direction === "right":
-						scrollAmount += speed;
-
-						const lastItem = list.lastElementChild;
-						const lastItemWidth = lastItem.getBoundingClientRect().width;
-
-						list.style.transform = `translateX(${scrollAmount}px)`;
-
-						if (lastItem.getBoundingClientRect().left >= window.innerWidth) {
-							list.prepend(lastItem); // Перемещаем последний элемент в начало списка
-
-							// Пересчитываем смещение, чтобы сделать переход плавным
-							scrollAmount -= lastItemWidth + parseFloat(getComputedStyle(lastItem).marginRight);
-							list.style.transform = `translateX(${scrollAmount}px)`;
-						}
-						break;
-
-					default:
-				}
-
-				requestAnimationFrame(scrollMarquee); // Рекурсивно вызываем функцию для плавной анимации
-			}
-
-			scrollMarquee();
 		});
 	}
 }
-marquee()
+
+// Вызов функции
+fadeBlock('.rs-slider__block');
+
+//========================================================================================================================================================
+function strokeTextAnimation(elem) {
+	const texts = document.querySelectorAll(elem);
+
+	texts.forEach(text => {
+		const lines = text.innerHTML.split("<br>");
+		text.innerHTML = lines.map((line, index) => {
+			const delay = 500 + (index * 100);
+			return `
+        <div style="overflow: hidden;">
+          <span class="line" data-aos="fade-up" data-aos-delay="${delay}">${line.trim()}</span>
+        </div>`;
+		}).join("");
+	});
+
+	// Обновляем AOS для учета новых элементов
+	AOS.refresh();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+	strokeTextAnimation('.section__header_title h2');
+	AOS.init();
+});
 
 /* ====================================
 Табы
@@ -261,288 +246,6 @@ function tabs() {
 }
 if (document.querySelector('[data-tabs]')) {
 	tabs()
-}
-
-//========================================================================================================================================================
-gsap.registerPlugin(ScrollTrigger);
-
-// Обработка изменений на странице динамически
-const handleResize = () => {
-	requestAnimationFrame(() => {
-		ScrollTrigger.refresh();
-	});
-};
-
-const handleReveal = () => {
-	initAnimationsBasedOnWidth();
-	if (typeof refreshScrollTrigger === 'function') {
-		refreshScrollTrigger();
-	}
-};
-
-let currentWidthAnimation = null;
-const stagger = 0.5;
-
-//========================================================================================================================================================
-
-// Функция анимации для указанного блока
-function animateBlockFromRightToLeft(targetBlock) {
-	console.log('Инициализация анимации перемещения элемента при скролле');
-	const blocks = document.querySelectorAll(targetBlock);
-	blocks.forEach(block => {
-		// Настраиваем анимацию с GSAP и ScrollTrigger
-		gsap.fromTo(block,
-			{ x: '100%' },  // Начальное положение: за пределами справа
-			{
-				x: '-100%',                 // Конечное положение: в исходном месте
-				duration: 1,             // Длительность анимации
-				ease: 'none',            // Убираем замедление для равномерного движения
-				scrollTrigger: {
-					trigger: block,       // Блок, который анимируем
-					start: 'top bottom',  // Анимация начинается, когда верх блока достигает низа экрана
-					end: 'bottom top',    // Анимация заканчивается, когда низ блока достигает верха экрана
-					scrub: 1.5,           // Привязываем анимацию к скроллу, плавный эффект
-					// markers: true,     // Если нужно посмотреть маркеры
-				}
-			}
-		);
-	});
-}
-
-// Функция для анимации параллакса изображения
-function parallaxImage(imageSelector) {
-	console.log('Инициализация анимации параллакса изображения');
-	gsap.utils.toArray(imageSelector).forEach(image => {
-		// Настраиваем анимацию с GSAP и ScrollTrigger
-		gsap.fromTo(image,
-			{ y: '20%' },  // Начальное смещение вниз
-			{
-				y: '-50%',          // Конечное смещение вверх
-				ease: 'none',       // Убираем ускорение/замедление для равномерного движения
-				scrollTrigger: {
-					trigger: image,  // Триггер для анимации — сам элемент
-					start: 'top bottom',  // Начинаем, когда верх изображения появляется снизу экрана
-					end: 'bottom top',    // Заканчиваем, когда низ изображения достигает верха экрана
-					scrub: 1.5,          // Привязываем анимацию к скроллу
-					// markers: true,     // Включите маркеры для отладки
-				}
-			}
-		);
-	});
-}
-
-//========================================================================================================================================================
-
-// Дебаунсинг функции
-function debounce(func, wait) {
-	let timeout;
-	return function () {
-		const context = this, args = arguments;
-		clearTimeout(timeout);
-		timeout = setTimeout(() => func.apply(context, args), wait);
-	};
-}
-// Дебаунсинг события ресайза
-const debouncedInitAnimations = debounce(initAnimationsBasedOnWidth, 100);
-
-// Функция для удаления анимаций
-function clearAnimations() {
-	// Удаление всех активных ScrollTrigger
-	ScrollTrigger.getAll().forEach(trigger => {
-		trigger.kill();
-	});
-
-	// Удаление всех pin-spacer, созданных ScrollTrigger
-	document.querySelectorAll('.pin-spacer, .gsap-pin-spacer').forEach(spacer => {
-		spacer.replaceWith(...spacer.childNodes);
-
-	});
-
-	console.log("Все анимации и pin-spacer удалены");
-}
-
-// Инициализация анимаций для разных разрешений
-function initAnimationsBasedOnWidth() {
-	const width = window.innerWidth;
-	// Сохраняем текущую позицию скролла
-	const scrollPos = window.scrollY || window.pageYOffse;
-
-	clearAnimations();
-
-	// Восстанавливаем позицию скролла после обновления
-	window.scrollTo(0, scrollPos);
-
-	if (width >= 991.98) {
-		// Если переключаемся с мобильной версии, очищаем мобильные анимации
-		if (currentWidthAnimation === 'mobile') {
-			clearAnimations();
-		}
-		initializeDesktopAnimations();
-		currentWidthAnimation = 'desktop';
-	} else {
-		// Если переключаемся с десктопной версии, очищаем десктопные анимации
-		if (currentWidthAnimation === 'desktop') {
-			clearAnimations();
-		}
-		initializeMobileAnimations();
-		currentWidthAnimation = 'mobile';
-	}
-
-	// Инициализация общих анимаций
-	initializeCommonAnimations();
-
-	// Обновляем точки старта/окончания для всех ScrollTrigger
-	ScrollTrigger.refresh();
-}
-
-//========================================================================================================================================================
-// Обработка изменения размера окна с дебаунсом
-window.addEventListener('resize', debouncedInitAnimations);
-
-// Обработка смены ориентации экрана
-window.addEventListener('orientationchange', () => {
-	initAnimationsBasedOnWidth();
-});
-
-// Обработка при загрузке страницы
-window.addEventListener('load', () => {
-	initAnimationsBasedOnWidth();
-	handleResize();
-});
-
-//========================================================================================================================================================
-// Общие анимации
-function initializeCommonAnimations() {
-	console.log("Инициализация общих анимаций");
-
-	// Применяем анимацию к указанным элементам
-	animateBlockFromRightToLeft('.rs-about .rs-about__logo_title');
-	animateBlockFromRightToLeft('.rs-parallax .rs-parallax__logo');
-
-	// Применяем анимацию к изображениям с параллаксом
-	parallaxImage('.rs-parallax .rs-parallax__img img');
-}
-
-// Десктопные анимаций
-function initializeDesktopAnimations() {
-	console.log("Инициализация десктопных анимаций");
-
-	if (document.querySelector('.rs-project')) {
-		const stackBlocks = document.querySelectorAll('.rs-project')
-		stackBlocks.forEach(stackBlock => {
-			const stackBodys = stackBlock.querySelectorAll('.rs-project__body')
-
-			stackBodys.forEach(stackBody => {
-				const stackItems = stackBody.querySelectorAll('.rs-project__item');
-				const stackList = stackBody.querySelector('.rs-project__list');
-
-				const stackTimeline = gsap.timeline({
-					scrollTrigger: {
-						trigger: stackList,
-						start: 'top top',
-						end: "bottom+=50% top",
-						pin: true,
-						pinSpacing: true,
-						scrub: true,
-						invalidateOnRefresh: true,
-						// markers: true,
-					}
-				});
-
-				stackTimeline
-					.to(stackItems, {
-						yPercent: (index) => -100 * index,
-						duration: 1,
-						ease: "power2.inOut",
-						stagger: stagger,
-					})
-					.to(stackItems, {
-						duration: 1,
-						ease: "power2.inOut",
-						stagger: stagger,
-					}, stagger);
-			});
-		});
-	}
-
-	if (document.querySelector('.rs-services')) {
-		const servicesBlock = document.querySelectorAll('.rs-services');
-
-		servicesBlock.forEach(service => {
-			const serviceImages = service.querySelectorAll('.rs-services__img');
-			const serviceWrapper = service.querySelector('.rs-services__blocks');
-
-			// Получаем высоту блока, чтобы отталкиваться от неё
-			const blocksHeight = serviceWrapper.offsetHeight;
-
-			// Устанавливаем первый блок как активный при загрузке
-			serviceImages[0].classList.add('active');
-
-			// Фиксируем блок с изображениями при скролле, но снимаем фиксирование ближе к концу
-			ScrollTrigger.create({
-				trigger: serviceWrapper,
-				start: 'top 25%',  // Начало фиксирования
-				end: `bottom 65%`,  // Останавливаем фиксирование за 25% до конца блока
-				pin: service.querySelector('.rs-services__imgs_list'),  // Фиксируем контейнер с картинками
-			});
-
-			serviceImages.forEach((img, index) => {
-				// Определяем, сколько высоты от блока займёт каждый шаг анимации
-				const imageStart = (index / serviceImages.length) * blocksHeight;
-				const imageEnd = ((index + 1) / serviceImages.length) * blocksHeight;
-
-				// Добавляем ScrollTrigger для каждой картинки
-				ScrollTrigger.create({
-					trigger: serviceWrapper,
-					start: `${imageStart}px 50%`,  // Начало анимации, когда картинка немного в зоне видимости
-					end: `${imageEnd}px 50%`,  // Завершение анимации
-					toggleActions: 'play none none reverse',  // Воспроизведение анимации
-					onEnter: () => {
-						// Убираем активный класс у всех изображений
-						serviceImages.forEach(image => image.classList.remove('active'));
-						// Добавляем активный класс только текущему изображению
-						img.classList.add('active');
-					},
-					onLeaveBack: () => {
-						// Убираем активный класс у всех изображений
-						serviceImages.forEach(image => image.classList.remove('active'));
-						// Если возвращаемся назад, активируем предыдущее изображение
-						if (index > 0) {
-							serviceImages[index - 1].classList.add('active');
-						}
-						// Устанавливаем активным первый блок, если возвращаемся в начало
-						if (index === 0) {
-							serviceImages[0].classList.add('active');
-						}
-					}
-				});
-			});
-
-			// Добавляем активный класс последнему изображению в конце блока
-			ScrollTrigger.create({
-				trigger: serviceWrapper,
-				start: 'bottom-=25% 50%',  // Когда находимся у нижней границы
-				end: 'bottom bottom',  // Конец блока
-				onEnter: () => {
-					// Убираем активные классы со всех изображений
-					serviceImages.forEach(image => image.classList.remove('active'));
-					// Добавляем активный класс последнему изображению
-					serviceImages[serviceImages.length - 1].classList.add('active');
-				},
-				onLeaveBack: () => {
-					// Убираем активный класс последнего изображения при обратном скролле
-					serviceImages[serviceImages.length - 1].classList.remove('active');
-					// Если возвращаемся вверх, активируем первый блок
-					serviceImages[0].classList.add('active');
-				}
-			});
-		});
-	}
-}
-
-// Мобильные анимаций
-function initializeMobileAnimations() {
-	console.log("Инициализация мобильных анимаций");
 }
 
 //========================================================================================================================================================

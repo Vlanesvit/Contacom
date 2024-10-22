@@ -16,11 +16,11 @@
 
 	<div class="wrapper">
 
-		<!-- _header-white - класс для стилизации хедера "на блоке" или белая версия -->
+		<!-- _header-transparent - класс для стилизации хедера "на блоке" или в белой версии -->
 		<link rel="stylesheet" href="css/rs-header.css" />
 		<script src="js/rs-header.js" defer></script>
 		<header>
-			<div class="rs-header">
+			<div class="rs-header _header-transparent">
 				<div class="rs-header__container">
 					<div class="rs-header__wrapper">
 						<div class="rs-header__logo">
@@ -55,8 +55,14 @@
 											<a href="#">Каталог</a>
 
 											<ul class="menu__dropdown_list">
-												<li class="menu-item">
+												<li class="menu-item menu__dropdown">
 													<a href="#">Кабельно-проводниковая продукция</a>
+
+													<ul class="menu__dropdown_list">
+														<li class="menu-item">
+															<a href="#">Кабельно-проводниковая продукция</a>
+														</li>
+													</ul>
 												</li>
 
 												<li class="menu-item">
@@ -128,8 +134,8 @@
 								<div class="menu__contact">
 									<h6>Свяжитесь с нами</h6>
 
-									<ul>
-										<li>
+									<ul class="menu__list">
+										<li class="menu-item">
 											<a href="#">
 												<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
 													xmlns="http://www.w3.org/2000/svg">
@@ -140,12 +146,12 @@
 												Где нас найти
 											</a>
 										</li>
-										<li>
+										<li class="menu-item">
 											<a href="mailto:office@ktk.energy">
 												office@ktk.energy
 											</a>
 										</li>
-										<li>
+										<li class="menu-item">
 											<a href="tel:78129281555">
 												+7 (812) 928-15-55
 											</a>
@@ -180,78 +186,83 @@
 		<main class="page">
 
 			<section class="rs-slider">
-				<div class="rs-slider__bg">
-					<img src="./img/blocks/slider/slider_bg-1.jpg" alt="">
-				</div>
-				<div class="rs-slider__container">
-					<div class="rs-slider__wrapper">
-						<div class="rs-slider__content">
-							<div class="rs-slider__slider swiper">
-								<div class="rs-slider__swiper swiper-wrapper">
-									<div class="rs-slider__slide swiper-slide">
-										<div class="rs-slider__body">
-											<h1>Высококачественные кабели и провода различных типов</h1>
-											<h5>Широкий ассортимент кабельно-проводниковой продукции для любых задач
-											</h5>
-											<a href="#" class="rs-btn _btn-white-border">
-												В каталог
-												<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path
-														d="M7.42462 22.981L22.981 7.42467M22.981 7.42467H8.13173M22.981 7.42467V22.2739"
-														stroke-linecap="round" stroke-linejoin="round" />
-												</svg>
-											</a>
+				<div class="rs-slider__block">
+					<div class="rs-slider__bg">
+						<img src="./img/blocks/slider/slider_bg-1.jpg" alt="">
+					</div>
+					<div class="rs-slider__container">
+						<div class="rs-slider__wrapper">
+							<div class="rs-slider__content">
+								<div class="rs-slider__slider swiper">
+									<div class="rs-slider__swiper swiper-wrapper">
+										<div class="rs-slider__slide swiper-slide">
+											<div class="rs-slider__body">
+												<h1>Высококачественные кабели и провода различных типов</h1>
+												<h5>Широкий ассортимент кабельно-проводниковой продукции для любых задач
+												</h5>
+												<a href="#" class="rs-btn _btn-white-border">
+													В каталог
+													<svg viewBox="0 0 30 30" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<path
+															d="M7.42462 22.981L22.981 7.42467M22.981 7.42467H8.13173M22.981 7.42467V22.2739"
+															stroke-linecap="round" stroke-linejoin="round" />
+													</svg>
+												</a>
+											</div>
 										</div>
-									</div>
 
-									<div class="rs-slider__slide swiper-slide">
-										<div class="rs-slider__body">
-											<h1>Мощные силовые трансформаторы</h1>
-											<h5>Для бесперебойной работы оборудования</h5>
-											<a href="#" class="rs-btn _btn-white-border">
-												В каталог
-												<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path
-														d="M7.42462 22.981L22.981 7.42467M22.981 7.42467H8.13173M22.981 7.42467V22.2739"
-														stroke-linecap="round" stroke-linejoin="round" />
-												</svg>
-											</a>
+										<div class="rs-slider__slide swiper-slide">
+											<div class="rs-slider__body">
+												<h1>Мощные силовые трансформаторы</h1>
+												<h5>Для бесперебойной работы оборудования</h5>
+												<a href="#" class="rs-btn _btn-white-border">
+													В каталог
+													<svg viewBox="0 0 30 30" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<path
+															d="M7.42462 22.981L22.981 7.42467M22.981 7.42467H8.13173M22.981 7.42467V22.2739"
+															stroke-linecap="round" stroke-linejoin="round" />
+													</svg>
+												</a>
+											</div>
 										</div>
-									</div>
 
-									<div class="rs-slider__slide swiper-slide">
-										<div class="rs-slider__body">
-											<h1>Современные автотрансформаторы</h1>
-											<h5>Для эффективного преобразования напряжения на промышленных и
-												энергетических объектах</h5>
-											<a href="#" class="rs-btn _btn-white-border">
-												В каталог
-												<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path
-														d="M7.42462 22.981L22.981 7.42467M22.981 7.42467H8.13173M22.981 7.42467V22.2739"
-														stroke-linecap="round" stroke-linejoin="round" />
-												</svg>
-											</a>
+										<div class="rs-slider__slide swiper-slide">
+											<div class="rs-slider__body">
+												<h1>Современные автотрансформаторы</h1>
+												<h5>Для эффективного преобразования напряжения на промышленных и
+													энергетических объектах</h5>
+												<a href="#" class="rs-btn _btn-white-border">
+													В каталог
+													<svg viewBox="0 0 30 30" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<path
+															d="M7.42462 22.981L22.981 7.42467M22.981 7.42467H8.13173M22.981 7.42467V22.2739"
+															stroke-linecap="round" stroke-linejoin="round" />
+													</svg>
+												</a>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="rs-slider__navigation swiper-navigation">
-							<div class="rs-slider__button-prev swiper-button-prev">
-								<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M25.7972 15.2029L3.79718 15.2029M3.79718 15.2029L14.2972 4.70288M3.79718 15.2029L14.2972 25.7029"
-										stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
-							</div>
-							<div class="rs-slider__pagination swiper-pagination"></div>
-							<div class="rs-slider__button-next swiper-button-next">
-								<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M4.20279 15.2029L26.2028 15.2029M26.2028 15.2029L15.7028 4.70288M26.2028 15.2029L15.7028 25.7029"
-										stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
+							<div class="rs-slider__navigation swiper-navigation">
+								<div class="rs-slider__button-prev swiper-button-prev">
+									<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M25.7972 15.2029L3.79718 15.2029M3.79718 15.2029L14.2972 4.70288M3.79718 15.2029L14.2972 25.7029"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</div>
+								<div class="rs-slider__pagination swiper-pagination"></div>
+								<div class="rs-slider__button-next swiper-button-next">
+									<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M4.20279 15.2029L26.2028 15.2029M26.2028 15.2029L15.7028 4.70288M26.2028 15.2029L15.7028 25.7029"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -262,13 +273,14 @@
 				<div class="rs-catalog-nav__container">
 					<div class="section__header">
 						<div class="section__header_title">
-							<h2>Каталог электротехнической продукции</h2>
+							<h2>Каталог электротехнической <br>
+								продукции</h2>
 						</div>
 					</div>
 
 					<div class="rs-catalog-nav__wrapper">
 						<div class="rs-catalog-nav__list">
-							<div class="rs-catalog-nav__item">
+							<div class="rs-catalog-nav__item" data-aos="fade-up" data-aos-delay="100">
 								<a href="#" class="rs-catalog-nav__link">
 									<div class="rs-catalog-nav__img">
 										<img src="./img/blocks/catalog/catalog__img-1.1.jpg" alt="">
@@ -276,7 +288,7 @@
 									</div>
 									<div class="rs-catalog-nav__desc">
 										<div class="rs-catalog-nav__desc_body">
-											<h4>Кабельно-проводниковая продукция</h4>
+											<h4>Кабельно-проводниковая <br> продукция</h4>
 										</div>
 										<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path
@@ -287,7 +299,7 @@
 								</a>
 							</div>
 
-							<div class="rs-catalog-nav__item">
+							<div class="rs-catalog-nav__item" data-aos="fade-up" data-aos-delay="200">
 								<a href="#" class="rs-catalog-nav__link">
 									<div class="rs-catalog-nav__img">
 										<img src="./img/blocks/catalog/catalog__img-2.1.jpg" alt="">
@@ -306,7 +318,7 @@
 								</a>
 							</div>
 
-							<div class="rs-catalog-nav__item">
+							<div class="rs-catalog-nav__item" data-aos="fade-up" data-aos-delay="100">
 								<a href="#" class="rs-catalog-nav__link">
 									<div class="rs-catalog-nav__img">
 										<img src="./img/blocks/catalog/catalog__img-3.1.jpg" alt="">
@@ -325,7 +337,7 @@
 								</a>
 							</div>
 
-							<div class="rs-catalog-nav__item">
+							<div class="rs-catalog-nav__item" data-aos="fade-up" data-aos-delay="200">
 								<a href="#" class="rs-catalog-nav__link">
 									<div class="rs-catalog-nav__img">
 										<img src="./img/blocks/catalog/catalog__img-4.1.jpg" alt="">
@@ -344,7 +356,7 @@
 								</a>
 							</div>
 
-							<div class="rs-catalog-nav__item">
+							<div class="rs-catalog-nav__item" data-aos="fade-up" data-aos-delay="100">
 								<a href="#" class="rs-catalog-nav__link">
 									<div class="rs-catalog-nav__img">
 										<img src="./img/blocks/catalog/catalog__img-5.1.jpg" alt="">
@@ -363,7 +375,7 @@
 								</a>
 							</div>
 
-							<div class="rs-catalog-nav__item">
+							<div class="rs-catalog-nav__item" data-aos="fade-up" data-aos-delay="200">
 								<a href="#" class="rs-catalog-nav__link">
 									<div class="rs-catalog-nav__img">
 										<img src="./img/blocks/catalog/catalog__img-6.1.jpg" alt="">
@@ -382,7 +394,7 @@
 								</a>
 							</div>
 
-							<div class="rs-catalog-nav__item">
+							<div class="rs-catalog-nav__item" data-aos="fade-up" data-aos-delay="100">
 								<a href="#" class="rs-catalog-nav__link">
 									<div class="rs-catalog-nav__img">
 										<img src="./img/blocks/catalog/catalog__img-7.1.jpg" alt="">
@@ -401,7 +413,7 @@
 								</a>
 							</div>
 
-							<div class="rs-catalog-nav__item">
+							<div class="rs-catalog-nav__item" data-aos="fade-up" data-aos-delay="200">
 								<a href="#" class="rs-catalog-nav__link">
 									<div class="rs-catalog-nav__img">
 										<img src="./img/blocks/catalog/catalog__img-8.1.jpg" alt="">
@@ -420,7 +432,7 @@
 								</a>
 							</div>
 
-							<div class="rs-catalog-nav__item">
+							<div class="rs-catalog-nav__item" data-aos="fade-up" data-aos-delay="100">
 								<a href="#" class="rs-catalog-nav__link">
 									<div class="rs-catalog-nav__img">
 										<img src="./img/blocks/catalog/catalog__img-9.1.jpg" alt="">
@@ -439,7 +451,7 @@
 								</a>
 							</div>
 
-							<div class="rs-catalog-nav__item">
+							<div class="rs-catalog-nav__item" data-aos="fade-up" data-aos-delay="200">
 								<div class="rs-catalog-nav__desc">
 									<div class="rs-catalog-nav__desc_body">
 										<h4>Нужна консультация специалиста?</h4>
@@ -463,21 +475,22 @@
 			</section>
 
 			<section class="rs-banner">
-				<div class="rs-banner__wrapper">
-					<div class="rs-banner__bg">
-						<img src="./img/blocks/banner/banner_bg-1.jpg" alt="">
-					</div>
-					<div class="rs-banner__container">
+				<div class="rs-banner__container">
+					<div class="rs-banner__wrapper">
+						<div class="rs-banner__bg">
+							<img src="./img/blocks/banner/banner_bg-1.jpg" alt="" data-aos="zoom-out"
+								data-aos-delay="100">
+						</div>
 						<div class="rs-banner__content">
-							<div class="rs-banner__text">
+							<div class="rs-banner__text" data-aos="fade-up" data-aos-delay="400">
 								<p>Мы уделяем внимание высоким стандартам качества и сервиса. Наша команда специалистов
 									обеспечивает надежные и эффективные решения, поддерживая энергетическую
 									инфраструктуру
 									России. Активное участие в тендерах подтверждает нашу стратегию роста и расширения.
 								</p>
 							</div>
-							<div class="rs-banner__body">
-								<h3>Надежный партнер в электротехнической отрасли</h3>
+							<div class="rs-banner__body" data-aos="fade-up" data-aos-delay="500">
+								<h3>Надежный партнер <br> в электротехнической отрасли</h3>
 								<p>ООО «КТК», основанная в 2018 году, быстро стала надежным поставщиком
 									электротехнической
 									продукции для таких компаний, как ПАО «Россети Ленэнерго» и ПАО «Федеральная сетевая
@@ -502,25 +515,29 @@
 						<div class="section__header_title">
 							<h2>Ценности компании</h2>
 						</div>
+
+						<div class="rs-values__bg">
+							<img src="./img/blocks/values/values_bg.png" alt="">
+						</div>
 					</div>
 
 					<div class="rs-values__wrapper">
 						<div class="rs-values__list">
-							<div class="rs-values__item">
+							<div class="rs-values__item" data-aos="fade-up" data-aos-delay="100">
 								<h4>Профессионализм</h4>
-								<p>Наши эксперты предоставляют квалифицированные консультации и помощь в выборе
+								<p>Наши эксперты предоставляют квалифицированные консультации и помощь <br> в выборе
 									продукции</p>
 							</div>
 
-							<div class="rs-values__item">
+							<div class="rs-values__item" data-aos="fade-up" data-aos-delay="200">
 								<h4>Ответственность</h4>
-								<p>Мы соблюдаем законы, заботимся об экологии и поддерживаем социальные проекты</p>
+								<p>Мы соблюдаем законы, заботимся об <br> экологии и поддерживаем социальные проекты</p>
 							</div>
 
-							<div class="rs-values__item">
+							<div class="rs-values__item" data-aos="fade-up" data-aos-delay="300">
 								<h4>Партнерство</h4>
-								<p>Мы строим долгосрочные отношения и готовы к сотрудничеству для совместного решения
-									задач</p>
+								<p>Мы строим долгосрочные отношения <br> и готовы к сотрудничеству для совместного
+									решения задач</p>
 							</div>
 						</div>
 					</div>
@@ -535,61 +552,170 @@
 						</div>
 					</div>
 
-					<div class="rs-logo__wrapper">
-						<div class="rs-logo__slider swiper">
-							<div class="rs-logo__swiper swiper-wrapper">
-								<div class="rs-logo__slide swiper-slide">
-									<div class="rs-logo__img">
-										<img src="./img/blocks/logo/logo_img-1.png" alt="">
+					<div class="rs-logo__wrapper" data-aos="fade-up" data-aos-delay="100">
+						<div class="rs-logo__block">
+							<div class="rs-logo__slider swiper">
+								<div class="rs-logo__swiper swiper-wrapper">
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-1.png" alt="">
+										</div>
 									</div>
-								</div>
 
-								<div class="rs-logo__slide swiper-slide">
-									<div class="rs-logo__img">
-										<img src="./img/blocks/logo/logo_img-2.png" alt="">
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-4.png" alt="">
+										</div>
 									</div>
-								</div>
 
-								<div class="rs-logo__slide swiper-slide">
-									<div class="rs-logo__img">
-										<img src="./img/blocks/logo/logo_img-3.png" alt="">
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-2.png" alt="">
+										</div>
 									</div>
-								</div>
 
-								<div class="rs-logo__slide swiper-slide">
-									<div class="rs-logo__img">
-										<img src="./img/blocks/logo/logo_img-4.png" alt="">
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-5.png" alt="">
+										</div>
 									</div>
-								</div>
 
-								<div class="rs-logo__slide swiper-slide">
-									<div class="rs-logo__img">
-										<img src="./img/blocks/logo/logo_img-5.png" alt="">
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-3.png" alt="">
+										</div>
 									</div>
-								</div>
 
-								<div class="rs-logo__slide swiper-slide">
-									<div class="rs-logo__img">
-										<img src="./img/blocks/logo/logo_img-6.png" alt="">
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-6.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-1.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-4.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-2.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-5.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-3.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-6.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-1.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-4.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-2.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-5.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-3.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-6.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-1.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-4.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-2.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-5.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-3.png" alt="">
+										</div>
+									</div>
+
+									<div class="rs-logo__slide swiper-slide">
+										<div class="rs-logo__img">
+											<img src="./img/blocks/logo/logo_img-6.png" alt="">
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-
-						<div class="rs-logo__navigation swiper-navigation">
-							<div class="rs-logo__button-prev swiper-button-prev">
-								<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M25.7972 15.2029L3.79718 15.2029M3.79718 15.2029L14.2972 4.70288M3.79718 15.2029L14.2972 25.7029"
-										stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
-							</div>
-							<div class="rs-logo__button-next swiper-button-next">
-								<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M4.20279 15.2029L26.2028 15.2029M26.2028 15.2029L15.7028 4.70288M26.2028 15.2029L15.7028 25.7029"
-										stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
+							<div class="rs-logo__navigation swiper-navigation">
+								<div class="rs-logo__button-next swiper-button-next">
+									<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M4.20279 15.2029L26.2028 15.2029M26.2028 15.2029L15.7028 4.70288M26.2028 15.2029L15.7028 25.7029"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</div>
+								<div class="rs-logo__button-prev swiper-button-prev">
+									<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M25.7972 15.2029L3.79718 15.2029M3.79718 15.2029L14.2972 4.70288M3.79718 15.2029L14.2972 25.7029"
+											stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -597,55 +723,54 @@
 			</section>
 
 			<section class="rs-services">
-				<div class="rs-services__wrapper">
-					<div class="rs-services__bg">
-						<img src="./img/blocks/services/services_bg-1.jpg" alt="">
-					</div>
-					<div class="rs-services__block">
-						<div class="rs-services__container">
-							<div class="section__header">
-								<div class="section__header_title">
-									<h2>Также мы предоставляем сопутствующие услуги</h2>
+				<div class="rs-services__container">
+					<div class="rs-services__wrapper">
+						<div class="rs-services__bg">
+							<img src="./img/blocks/services/services_bg-2.jpg" alt="">
+							<img src="./img/blocks/services/services_bg-1.jpg" alt="">
+						</div>
+						<div class="section__header">
+							<div class="section__header_title">
+								<h2>Также мы предоставляем <br> сопутствующие услуги</h2>
+							</div>
+						</div>
+
+						<div class="rs-services__list" data-aos="fade-up" data-aos-delay="100">
+							<div class="rs-services__item">
+								<div class="rs-services__desc">
+									<div class="rs-services__body">
+										<h4>Доставка</h4>
+										<p>Бережно доставим продукцию до вашего объекта <br>
+											в установленный срок</p>
+									</div>
+									<div class="rs-services__btn">
+										<a href="#" class="rs-btn _btn-white-border">
+											Подробнее
+											<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
+													stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+										</a>
+									</div>
 								</div>
 							</div>
 
-							<div class="rs-services__list">
-								<div class="rs-services__item">
-									<div class="rs-services__desc">
-										<div class="rs-services__body">
-											<h4>Доставка</h4>
-											<p>Бережно доставим продукцию до вашего объекта
-												в установленный срок</p>
-										</div>
-										<div class="rs-services__btn">
-											<a href="#" class="rs-btn _btn-white-border">
-												Подробнее
-												<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path
-														d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
-														stroke-linecap="round" stroke-linejoin="round" />
-												</svg>
-											</a>
-										</div>
+							<div class="rs-services__item">
+								<div class="rs-services__desc">
+									<div class="rs-services__body">
+										<h4>Монтаж и шеф-надзор</h4>
+										<p>Установим оборудование и проследим, чтобы <br> его запуск прошел успешно</p>
 									</div>
-								</div>
-
-								<div class="rs-services__item">
-									<div class="rs-services__desc">
-										<div class="rs-services__body">
-											<h4>Монтаж и шеф-надзор</h4>
-											<p>Установим оборудование и проследим, чтобы его запуск прошел успешно</p>
-										</div>
-										<div class="rs-services__btn">
-											<a href="#" class="rs-btn _btn-white-border">
-												Подробнее
-												<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path
-														d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
-														stroke-linecap="round" stroke-linejoin="round" />
-												</svg>
-											</a>
-										</div>
+									<div class="rs-services__btn">
+										<a href="#" class="rs-btn _btn-white-border">
+											Подробнее
+											<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
+													stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -661,83 +786,178 @@
 							<h2>Важные события в жизни компании</h2>
 						</div>
 					</div>
+				</div>
 
-					<div class="rs-news__slider swiper">
-						<div class="rs-news__swiper swiper-wrapper">
-							<div class="rs-news__slide swiper-slide">
-								<div class="rs-news__item">
-									<div class="rs-news__date">6 апреля 2024</div>
-									<div class="rs-news__img">
-										<img src="./img/blocks/news/news_img-1.jpg" alt="">
-									</div>
-									<div class="rs-news__desc">
-										<div class="rs-news__desc_body">
-											<h4>Сотрудники компании посетили крупнейшую российскую энергетическую
-												выставку</h4>
-											<p>Наши сотрудники приняли участие в крупнейшей российской энергетической
-												выставке, которая прошла в Москве</p>
+				<div class="rs-news__wrapper" data-aos="fade-up" data-aos-delay="100">
+					<div class="rs-news__container">
+						<div class="rs-news__slider swiper">
+							<div class="rs-news__swiper swiper-wrapper">
+								<div class="rs-news__slide swiper-slide">
+									<div class="rs-news__item">
+										<div class="rs-news__date">6 апреля 2024</div>
+										<div class="rs-news__img">
+											<img src="./img/blocks/news/news_img-3.jpg" alt="">
 										</div>
-										<div class="rs-news__desc_btn">
-											<a href="#" class="rs-btn _btn-white-border">
-												Подробнее
-												<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path
-														d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
-														stroke-linecap="round" stroke-linejoin="round" />
-												</svg>
-											</a>
+										<div class="rs-news__desc">
+											<div class="rs-news__desc_body">
+												<h4>Сотрудники компании посетили крупнейшую российскую энергетическую
+													выставку</h4>
+												<p>Наши сотрудники приняли участие в крупнейшей российской
+													энергетической
+													выставке, которая прошла в Москве</p>
+											</div>
+											<div class="rs-news__desc_btn">
+												<a href="#" class="rs-btn _btn-black-border">
+													Подробнее
+													<svg viewBox="0 0 30 30" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<path
+															d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
+															stroke-linecap="round" stroke-linejoin="round" />
+													</svg>
+												</a>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class="rs-news__slide swiper-slide">
-								<div class="rs-news__item">
-									<div class="rs-news__date">24 июня 2024</div>
-									<div class="rs-news__img">
-										<img src="./img/blocks/news/news_img-2.jpg" alt="">
-									</div>
-									<div class="rs-news__desc">
-										<div class="rs-news__desc_body">
-											<h4>Успешные испытания автотрансформатора на Воронежском заводе</h4>
-											<p>24 июня 2024 года на Воронежском трансформаторном заводе успешно
-												завершились испытания</p>
+								<div class="rs-news__slide swiper-slide">
+									<div class="rs-news__item">
+										<div class="rs-news__date">24 июня 2024</div>
+										<div class="rs-news__img">
+											<img src="./img/blocks/news/news_img-2.jpg" alt="">
 										</div>
-										<div class="rs-news__desc_btn">
-											<a href="#" class="rs-btn _btn-white-border">
-												Подробнее
-												<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path
-														d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
-														stroke-linecap="round" stroke-linejoin="round" />
-												</svg>
-											</a>
+										<div class="rs-news__desc">
+											<div class="rs-news__desc_body">
+												<h4>Успешные испытания автотрансформатора <br> на Воронежском заводе
+												</h4>
+												<p>24 июня 2024 года на Воронежском трансформаторном заводе успешно
+													завершились испытания</p>
+											</div>
+											<div class="rs-news__desc_btn">
+												<a href="#" class="rs-btn _btn-black-border">
+													Подробнее
+													<svg viewBox="0 0 30 30" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<path
+															d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
+															stroke-linecap="round" stroke-linejoin="round" />
+													</svg>
+												</a>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class="rs-news__slide swiper-slide">
-								<div class="rs-news__item">
-									<div class="rs-news__date">6 апреля 2024</div>
-									<div class="rs-news__img">
-										<img src="./img/blocks/news/news_img-1.jpg" alt="">
-									</div>
-									<div class="rs-news__desc">
-										<div class="rs-news__desc_body">
-											<h4>Автотрансформатор успешно доставлен заказчику в МЭС Волги</h4>
-											<p>27 июня 2024 года автотрансформатор был успешно доставлен в МЭС Волги.
-											</p>
+								<div class="rs-news__slide swiper-slide">
+									<div class="rs-news__item">
+										<div class="rs-news__date">6 апреля 2024</div>
+										<div class="rs-news__img">
+											<img src="./img/blocks/news/news_img-1.jpg" alt="">
 										</div>
-										<div class="rs-news__desc_btn">
-											<a href="#" class="rs-btn _btn-white-border">
-												Подробнее
-												<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path
-														d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
-														stroke-linecap="round" stroke-linejoin="round" />
-												</svg>
-											</a>
+										<div class="rs-news__desc">
+											<div class="rs-news__desc_body">
+												<h4>Автотрансформатор успешно <br> доставлен заказчику в МЭС Волги</h4>
+												<p>27 июня 2024 года автотрансформатор был успешно доставлен в МЭС
+													Волги.
+												</p>
+											</div>
+											<div class="rs-news__desc_btn">
+												<a href="#" class="rs-btn _btn-black-border">
+													Подробнее
+													<svg viewBox="0 0 30 30" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<path
+															d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
+															stroke-linecap="round" stroke-linejoin="round" />
+													</svg>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="rs-news__slide swiper-slide">
+									<div class="rs-news__item">
+										<div class="rs-news__date">6 апреля 2024</div>
+										<div class="rs-news__img">
+											<img src="./img/blocks/news/news_img-3.jpg" alt="">
+										</div>
+										<div class="rs-news__desc">
+											<div class="rs-news__desc_body">
+												<h4>Сотрудники компании посетили крупнейшую российскую энергетическую
+													выставку</h4>
+												<p>Наши сотрудники приняли участие в крупнейшей российской
+													энергетической
+													выставке, которая прошла в Москве</p>
+											</div>
+											<div class="rs-news__desc_btn">
+												<a href="#" class="rs-btn _btn-black-border">
+													Подробнее
+													<svg viewBox="0 0 30 30" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<path
+															d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
+															stroke-linecap="round" stroke-linejoin="round" />
+													</svg>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="rs-news__slide swiper-slide">
+									<div class="rs-news__item">
+										<div class="rs-news__date">24 июня 2024</div>
+										<div class="rs-news__img">
+											<img src="./img/blocks/news/news_img-2.jpg" alt="">
+										</div>
+										<div class="rs-news__desc">
+											<div class="rs-news__desc_body">
+												<h4>Успешные испытания автотрансформатора <br> на Воронежском заводе
+												</h4>
+												<p>24 июня 2024 года на Воронежском трансформаторном заводе успешно
+													завершились испытания</p>
+											</div>
+											<div class="rs-news__desc_btn">
+												<a href="#" class="rs-btn _btn-black-border">
+													Подробнее
+													<svg viewBox="0 0 30 30" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<path
+															d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
+															stroke-linecap="round" stroke-linejoin="round" />
+													</svg>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="rs-news__slide swiper-slide">
+									<div class="rs-news__item">
+										<div class="rs-news__date">6 апреля 2024</div>
+										<div class="rs-news__img">
+											<img src="./img/blocks/news/news_img-1.jpg" alt="">
+										</div>
+										<div class="rs-news__desc">
+											<div class="rs-news__desc_body">
+												<h4>Автотрансформатор успешно <br> доставлен заказчику в МЭС Волги</h4>
+												<p>27 июня 2024 года автотрансформатор был успешно доставлен в МЭС
+													Волги.
+												</p>
+											</div>
+											<div class="rs-news__desc_btn">
+												<a href="#" class="rs-btn _btn-black-border">
+													Подробнее
+													<svg viewBox="0 0 30 30" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<path
+															d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
+															stroke-linecap="round" stroke-linejoin="round" />
+													</svg>
+												</a>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -748,13 +968,11 @@
 			</section>
 
 			<section class="rs-form">
-				<div class="rs-form__wrapper">
-					<div class="rs-form__bg">
-						<img src="./img/blocks/banner/banner_bg-1.jpg" alt="">
-					</div>
-				</div>
-				<div class="rs-form__block">
-					<div class="rs-form__container">
+				<div class="rs-form__container">
+					<div class="rs-form__wrapper">
+						<div class="rs-form__bg">
+							<img src="./img/blocks/form/form_bg-1.jpg" alt="">
+						</div>
 						<div class="section__header">
 							<div class="section__header_title">
 								<h2>Остались вопросы?</h2>
@@ -892,6 +1110,9 @@
 	<script src="js/rs-sliders-init.js"></script>
 	<script src="lib/aos/aos.js"></script>
 	<script>AOS.init({ duration: 500, easing: "ease-out-quart", once: true });</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js"></script>
+	<script>SmoothScroll({ animationTime: 600, stepSize: 100, accelerationDelta: 50, accelerationMax: 3,})</script>
+	<script src="js/rs-services.js"></script>
 	<script src="js/rs-script.js"></script>
 
 </body>
