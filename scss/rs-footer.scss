@@ -17,8 +17,32 @@
 
 	// .rs-footer__menu
 	&__menu {
+		width: 100%;
 		background-color: var(--second-color);
 		padding: 60px 60px 50px;
+		position: relative;
+		z-index: 10;
+
+		&::after {
+			content: "";
+			position: absolute;
+			right: -3%;
+			bottom: 8%;
+			display: block;
+			width: 40%;
+			height: 36%;
+			background-image: url("../img/icons/pattern_2.svg");
+			background-repeat: no-repeat;
+			background-position: center;
+			pointer-events: none;
+			background-size: contain;
+			z-index: -1;
+
+			@media (max-width: 991.98px) {
+				right: 3%;
+				bottom: 3%;
+			}
+		}
 
 		@media (max-width: 1439.98px) {
 			padding: 40px;
@@ -146,6 +170,8 @@
 
 	// .rs-footer__contact
 	&__contact {
+		width: 100%;
+
 		background-color: var(--primary-color);
 		padding: 60px 60px 55px;
 		border-top: 1px solid rgba(255, 255, 255, 0.5);

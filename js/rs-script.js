@@ -92,7 +92,8 @@ function strokeTextAnimation(elem) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-	strokeTextAnimation('.section__header_title h2');
+	strokeTextAnimation('h1');
+	strokeTextAnimation('h2');
 	AOS.init();
 });
 

@@ -102,7 +102,7 @@ body {
 // Подключение стилей отдельных элементов ======================================================================================================================================================================================================================
 @import "./base/_common";
 @import "./base/_swiper";
-
+@import "./base/_breadcrumbs";
 @import "./blocks/_rs-slider";
 @import "./blocks/_rs-catalog-nav";
 @import "./blocks/_rs-banner";
@@ -111,3 +111,9 @@ body {
 @import "./blocks/_rs-services";
 @import "./blocks/_rs-news";
 @import "./blocks/_rs-form";
+@import "./blocks/_rs-catalog";
+@import "./blocks/_rs-text-block";
+@import "./blocks/_rs-features";
+@import "./blocks/_rs-steps";
+@import "./blocks/_rs-team";
+

@@ -1,5 +1,6 @@
 .rs-banner {
 	overflow: hidden;
+	margin: 0;
 
 	@media (min-width: 991.98px) {
 		height: 850px;
@@ -28,7 +29,6 @@
 		position: relative;
 		height: 100%;
 		overflow: hidden;
-		background-color: #000;
 		z-index: 10;
 	}
 
@@ -84,12 +84,13 @@
 		}
 	}
 
-	// .rs-banner__body
-	&__body {
+	// .rs-banner__desc
+	&__desc {
 		padding: 50px 40px 50px 50px;
 		background-color: var(--primary-color);
 		color: #fff;
 		position: relative;
+		min-height: 377px;
 
 		@media (max-width: 1439.98px) {
 			padding: 40px;
@@ -101,6 +102,7 @@
 
 		@media (max-width: 991.98px) {
 			padding: 20px;
+			min-height: unset;
 		}
 
 		@media (min-width: 991.98px) {
@@ -151,6 +153,28 @@
 			@media (max-width: 1169.98px) {
 				margin-top: 10px;
 			}
+		}
+	}
+
+	&__body {
+		position: relative;
+		z-index: 10;
+		height: 100%;
+
+		&::after {
+			content: "";
+			position: absolute;
+			right: 0%;
+			bottom: 1%;
+			display: block;
+			width: 30%;
+			height: 24%;
+			background-image: url("../img/icons/pattern_1.svg");
+			background-repeat: no-repeat;
+			background-position: center;
+			pointer-events: none;
+			background-size: contain;
+			z-index: -1;
 		}
 	}
 }

@@ -41,9 +41,29 @@
 
 			@media (max-width: 767.98px) {
 				height: auto;
+			}
 
-				.rs-catalog-nav__desc {
+			.rs-catalog-nav__desc {
+				z-index: 10;
+				
+				@media (max-width: 767.98px) {
 					position: relative;
+				}
+
+				&::after {
+					content: "";
+					position: absolute;
+					bottom: 17%;
+					left: 6%;
+					display: block;
+					width: 20%;
+					height: 20%;
+					background-image: url("../img/icons/pattern_1.svg");
+					background-repeat: no-repeat;
+					background-position: center;
+					pointer-events: none;
+					background-size: contain;
+					z-index: -1;
 				}
 			}
 		}

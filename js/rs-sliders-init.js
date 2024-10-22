@@ -225,6 +225,92 @@ function initSliders() {
 			});
 		});
 	}
+
+	if (document.querySelector('.rs-team__slider')) {
+		const sliderBlocks = document.querySelectorAll('.rs-team');
+		sliderBlocks.forEach(sliderBlock => {
+			const slider = sliderBlock.querySelector('.rs-team__slider');
+			const pagination = sliderBlock.querySelector('.rs-team__pagination');
+			const arrowNext = sliderBlock.querySelector('.rs-team__button-next');
+			const arrowPrev = sliderBlock.querySelector('.rs-team__button-prev');
+
+			const sliderSwiper = new Swiper(slider, {
+				// // Автопрокрутка
+				// autoplay: {
+				// 	// Пауза между прокруткой
+				// 	delay: 10000,
+				// 	// Закончить на последнем слайде
+				// 	stopOnLastSlide: false,
+				// 	// Отключить после ручного переключения
+				// 	disableOnInteraction: false,
+				// },
+
+				// Обновить свайпер
+				// при изменении элементов слайдера
+				observer: true,
+				// при изменении родительских элементов слайдера
+				observeParents: true,
+				// при изменении дочерних элементов слайдера
+				observeSlideChildren: true,
+
+				// Скорость смены слайдов
+				speed: 500,
+
+				// Включение/отключение
+				// перетаскивание на ПК
+				simulateTouch: true,
+				// Чувствительность свайпа
+				touchRadio: 1,
+				// Угол срабатывания свайпа/перетаскивания
+				touchAngle: 45,
+
+				// Цикличность слайдера
+				// loop: true,
+
+				// Пагинация
+				pagination: {
+					el: pagination,
+					clickable: true,
+					// dynamicBullets: true
+					// type: '',
+				},
+
+				// Стрелки
+				navigation: {
+					nextEl: arrowNext,
+					prevEl: arrowPrev,
+				},
+
+				// Брекпоинты (адаптив)
+				breakpoints: {
+					320: {
+						slidesPerView: 1,
+						spaceBetween: 16,
+					},
+					539.98: {
+						slidesPerView: 2,
+						spaceBetween: 16,
+					},
+					767.98: {
+						slidesPerView: 3,
+						spaceBetween: 20,
+					},
+					991.98: {
+						slidesPerView: 2,
+						spaceBetween: 34,
+					},
+					1169.98: {
+						slidesPerView: 2,
+						spaceBetween: 34,
+					},
+					1439.98: {
+						slidesPerView: 3,
+						spaceBetween: 34,
+					},
+				},
+			});
+		});
+	}
 }
 
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)

@@ -1,0 +1,146 @@
+.rs-team {
+	// .rs-team__container
+	&__container {
+	}
+
+	// .rs-team__wrapper
+	&__wrapper {
+		position: relative;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			height: 1px;
+			width: 100vw;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: #cdcdcd;
+			z-index: 10;
+		}
+
+		&::before {
+			top: 0;
+		}
+
+		&::after {
+			bottom: 0;
+		}
+	}
+
+	&__block {
+		display: flex;
+		position: relative;
+	}
+
+	// .rs-team__slider
+	&__slider {
+		padding: 50px 33px 50px 0px;
+
+		@media (max-width: 1439.98px) {
+			padding: 40px 33px 40px 0px;
+		}
+
+		@media (max-width: 1169.98px) {
+			padding: 30px 33px 30px 0px;
+		}
+
+		@media (max-width: 991.98px) {
+			padding: 20px 20px 20px 0px;
+			overflow: visible;
+			width: 100%;
+		}
+	}
+
+	// .rs-team__swiper
+	&__swiper {
+	}
+
+	// .rs-team__slide
+	&__slide {
+	}
+
+	&__item {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+	// .rs-team__img
+	&__img {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-bottom: 90.86%;
+		position: relative;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__desc {
+		margin-top: 20px;
+
+		@media (max-width: 1169.98px) {
+			margin-top: 10px;
+		}
+
+		p {
+			margin-top: 20px;
+
+			@media (max-width: 1169.98px) {
+				margin-top: 10px;
+			}
+		}
+	}
+
+	// .rs-team__navigation
+	&__navigation {
+		flex-direction: column;
+		background-color: #fff;
+		position: relative;
+		z-index: 10;
+		gap: 0px;
+		margin-right: -33px;
+
+		@media (max-width: 1439.98px) {
+			margin-right: -16px;
+		}
+
+		@media (max-width: 991.98px) {
+			display: none;
+		}
+	}
+
+	// .rs-team__button-prev
+	&__button-prev,
+	&__button-next {
+		width: 100%;
+		min-width: 284px;
+		height: 50%;
+		margin: 0;
+
+		@media (max-width: 1439.98px) {
+			min-width: 200px;
+		}
+	}
+
+	// .rs-team__button-prev
+	&__button-prev {
+		background-color: var(--tertiary-color);
+	}
+
+	// .rs-team__button-next
+	&__button-next {
+		background-color: var(--primary-color);
+	}
+}

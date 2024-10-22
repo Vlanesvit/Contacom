@@ -26,22 +26,28 @@ function menuFunction() {
 	function menuInit() {
 		menus.forEach(menu => {
 			// Все пункты
-			const menuItem = menu.querySelectorAll('.menu__body .menu__list li');
+			const menuItem = menu.querySelectorAll('.menu__list li');
 
 			// Все пункты с выпадающим меню
 			const menuItemDropdowns = menu.querySelectorAll('.menu__list .menu__dropdown');
 			const menuItemDropdownsMenu = menu.querySelectorAll('.menu__list .menu__dropdown_list');
 
-			// Проходим по каждому элементу <li>
 			menuItem.forEach(li => {
 				const link = li.querySelector('a');
 
 				if (link) {
-					const linkText = link.textContent;
-					const span = document.createElement('span');
-					span.textContent = linkText;
-					link.textContent = '';
-					link.appendChild(span);
+					// Проходим по всем дочерним узлам ссылки в обратном порядке
+					link.childNodes.forEach(node => {
+						// Если это текстовый узел (nodeType === 3) и текст не пустой
+						if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '') {
+							// Создаем новый span для текстового содержимого
+							const span = document.createElement('span');
+							span.textContent = node.textContent.trim();
+
+							// Заменяем текстовый узел на span
+							link.replaceChild(span, node);
+						}
+					});
 				}
 			});
 

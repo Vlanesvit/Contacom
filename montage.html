@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=, initial-scale=1.0" />
+	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="lib/swiper/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="lib/aos/aos.css">
+	<link rel="stylesheet" href="css/rs-style.css" />
+	<title>Монтаж и шеф-надзор - Контаком</title>
+</head>
+
+<body>
+
+	<div class="wrapper">
+
+		<!-- _header-transparent - класс для стилизации хедера "на блоке" или в белой версии -->
+		<link rel="stylesheet" href="css/rs-header.css" />
+		<script src="js/rs-header.js" defer></script>
+		<header>
+			<div class="rs-header _header-transparent">
+				<div class="rs-header__container">
+					<div class="rs-header__wrapper">
+						<div class="rs-header__logo">
+							<a href="#">
+								<img src="./img/header/logo.svg" alt="">
+							</a>
+						</div>
+
+						<div class="rs-header__menu menu">
+							<button type="button" class="menu__icon">
+								<span class="menu__icon_svg">
+									<svg width="14" height="15" viewBox="0 0 14 15" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path d="M1.07715 7.46143H12.9233" stroke="white" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M1.07715 3.19238H12.9233" stroke="white" stroke-linecap="round"
+											stroke-linejoin="round" />
+										<path d="M1.07715 11.7305H12.9233" stroke="white" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</span>
+								<span class="menu__icon_text">
+									<span>Меню</span>
+									<span>Закрыть</span>
+								</span>
+							</button>
+
+							<div class="menu__block">
+								<nav class="menu__body">
+									<ul class="menu__list">
+										<li class="menu-item menu__dropdown">
+											<a href="#">Каталог</a>
+
+											<ul class="menu__dropdown_list">
+												<li class="menu-item menu__dropdown">
+													<a href="#">Кабельно-проводниковая продукция</a>
+
+													<ul class="menu__dropdown_list">
+														<li class="menu-item">
+															<a href="#">Кабельно-проводниковая продукция</a>
+														</li>
+													</ul>
+												</li>
+
+												<li class="menu-item">
+													<a href="#">Силовые трансформаторы</a>
+												</li>
+
+												<li class="menu-item">
+													<a href="#">Автотрансформаторы</a>
+												</li>
+
+												<li class="menu-item">
+													<a href="#">Арматура СИП</a>
+												</li>
+
+												<li class="menu-item">
+													<a href="#">Арматура ВЛ</a>
+												</li>
+
+												<li class="menu-item">
+													<a href="#">Опоры (ЖБ и деревянные)</a>
+												</li>
+
+												<li class="menu-item">
+													<a href="#">КТП, СТП, МТП</a>
+												</li>
+
+												<li class="menu-item">
+													<a href="#">ИБП</a>
+												</li>
+
+												<li class="menu-item">
+													<a href="#">ИТКЗ</a>
+												</li>
+											</ul>
+										</li>
+
+										<li class="menu-item menu__dropdown">
+											<a href="#">Услуги</a>
+
+											<ul class="menu__dropdown_list">
+												<li class="menu-item">
+													<a href="#">Доставка</a>
+												</li>
+
+												<li class="menu-item">
+													<a href="#">Монтаж и шеф-надзор</a>
+												</li>
+											</ul>
+										</li>
+
+										<li class="menu-item">
+											<a href="#">О компании</a>
+										</li>
+
+										<li class="menu-item">
+											<a href="#">Оплата и доставка</a>
+										</li>
+
+										<li class="menu-item">
+											<a href="#">Новости</a>
+										</li>
+
+										<li class="menu-item">
+											<a href="#">Контакты</a>
+										</li>
+									</ul>
+								</nav>
+
+								<div class="menu__contact">
+									<h6>Свяжитесь с нами</h6>
+
+									<ul class="menu__list">
+										<li class="menu-item">
+											<a href="#">
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M14.7808 19.7005L14.3873 19.3919L14.7808 19.7005ZM9.21921 19.7005L8.82576 20.009L9.21921 19.7005ZM12 22.0055V21.5055V22.0055ZM19.5 9.6087C19.5 10.9042 18.8311 12.5939 17.8214 14.3791C16.8226 16.1448 15.5347 17.9288 14.3873 19.3919L15.1742 20.009C16.3366 18.5267 17.6583 16.6985 18.6918 14.8714C19.7141 13.0639 20.5 11.1804 20.5 9.6087H19.5ZM9.61266 19.3919C8.4653 17.9288 7.17736 16.1448 6.17865 14.3791C5.16887 12.5939 4.5 10.9042 4.5 9.6087H3.5C3.5 11.1804 4.28586 13.0639 5.30824 14.8714C6.34169 16.6985 7.66336 18.5267 8.82576 20.009L9.61266 19.3919ZM4.5 9.6087C4.5 5.09522 7.89176 1.5 12 1.5V0.5C7.27168 0.5 3.5 4.61326 3.5 9.6087H4.5ZM12 1.5C16.1082 1.5 19.5 5.09522 19.5 9.6087H20.5C20.5 4.61326 16.7283 0.5 12 0.5V1.5ZM14.3873 19.3919C13.7739 20.1742 13.3515 20.7101 12.9673 21.0591C12.6044 21.3887 12.325 21.5055 12 21.5055V22.5055C12.6482 22.5055 13.1567 22.238 13.6397 21.7993C14.1012 21.3801 14.5827 20.7634 15.1742 20.009L14.3873 19.3919ZM8.82576 20.009C9.41732 20.7634 9.89878 21.3801 10.3603 21.7993C10.8433 22.238 11.3518 22.5055 12 22.5055V21.5055C11.675 21.5055 11.3956 21.3887 11.0327 21.0591C10.6485 20.7101 10.2261 20.1743 9.61266 19.3919L8.82576 20.009ZM8.5 10C8.5 11.933 10.067 13.5 12 13.5V12.5C10.6193 12.5 9.5 11.3807 9.5 10H8.5ZM12 13.5C13.933 13.5 15.5 11.933 15.5 10H14.5C14.5 11.3807 13.3807 12.5 12 12.5V13.5ZM15.5 10C15.5 8.067 13.933 6.5 12 6.5V7.5C13.3807 7.5 14.5 8.61929 14.5 10H15.5ZM12 6.5C10.067 6.5 8.5 8.067 8.5 10H9.5C9.5 8.61929 10.6193 7.5 12 7.5V6.5Z"
+														fill="white" />
+												</svg>
+												Где нас найти
+											</a>
+										</li>
+										<li class="menu-item">
+											<a href="mailto:office@ktk.energy">
+												office@ktk.energy
+											</a>
+										</li>
+										<li class="menu-item">
+											<a href="tel:78129281555">
+												+7 (812) 928-15-55
+											</a>
+										</li>
+									</ul>
+
+									<a href="#" class="rs-btn _btn-black-border">
+										Написать нам
+										<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M4.20288 15.2029L26.2029 15.2029M26.2029 15.2029L15.7029 4.70288M26.2029 15.2029L15.7029 25.7029"
+												stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<a href="#" class="rs-header__search">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M19.3536 17.6465C19.1584 17.4513 18.8418 17.4513 18.6465 17.6465C18.4513 17.8418 18.4512 18.1584 18.6465 18.3536L19.3536 17.6465ZM22.6464 22.3536C22.8417 22.5489 23.1582 22.5489 23.3535 22.3536C23.5488 22.1583 23.5488 21.8418 23.3535 21.6465L22.6464 22.3536ZM18.6465 18.3536L22.6464 22.3536L23.3535 21.6465L19.3536 17.6465L18.6465 18.3536ZM11 18.5C6.30558 18.5 2.5 14.6944 2.5 10H1.5C1.5 15.2467 5.7533 19.5 11 19.5V18.5ZM19.5 10C19.5 14.6944 15.6944 18.5 11 18.5V19.5C16.2467 19.5 20.5 15.2467 20.5 10H19.5ZM11 1.5C15.6944 1.5 19.5 5.30558 19.5 10H20.5C20.5 4.7533 16.2467 0.5 11 0.5V1.5ZM11 0.5C5.7533 0.5 1.5 4.7533 1.5 10H2.5C2.5 5.30558 6.30558 1.5 11 1.5V0.5Z"
+									fill="white" />
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main class="page">
+
+			<section class="rs-text-block rs-text-block-head">
+				<div class="rs-text-block__container">
+					<div class="rs-text-block__wrapper">
+						<div class="rs-text-block__text">
+							<h1>Шеф-монтаж оборудования: <br> гарантия безупречной работы!</h1>
+						</div>
+
+						<div class="rs-text-block__img" data-aos="fade" data-aos-delay="100">
+							<img src="./img/blocks/text-block/text-block_head_img-2.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-text-block">
+				<div class="rs-text-block__container">
+					<div class="rs-text-block__wrapper">
+						<div class="rs-text-block__img" data-aos="fade-up" data-aos-delay="100">
+							<img src="./img/blocks/text-block/text-block_img-2.jpg" alt="">
+						</div>
+
+						<div class="rs-text-block__text">
+							<h2>Надёжная установка <br> и запуск оборудования на вашей</h2>
+							<p>При поставке сложного технологического оборудования мы предлагаем услугу шеф-монтажа,
+								чтобы обеспечить его надёжную и безопасную установку. Наши высококвалифицированные
+								специалисты проведут монтаж и наладку на вашей производственной площадке под строгим
+								контролем и в соответствии со всеми требованиями производителя. Это исключает ошибки,
+								которые могут возникнуть при самостоятельной установке, и позволяет минимизировать риски
+								возникновения неполадок. Мы также выполняем шеф-монтаж оборудования, поставленного не
+								только нами, но и другими поставщиками.</p>
+							<p>После завершения работ мы проводим все необходимые тесты и замеры, чтобы убедиться, что
+								оборудование работает безупречно. Мы выдаем техническое заключение и рекомендации по
+								дальнейшему обслуживанию и эксплуатации, что позволяет значительно увеличить срок
+								безаварийной работы. Важно помнить, что даже небольшой простой оборудования может
+								привести к большим финансовым потерям, поэтому мы делаем всё возможное, чтобы сократить
+								время монтажа и обеспечить его качественное выполнение.</p>
+						</div>
+					</div>
+					<div class="rs-text-block__bg" data-aos="fade-left" data-aos-delay="100">
+						<img src="./img/blocks/values/values_bg.png" alt="">
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-features">
+				<div class="rs-features__container">
+					<div class="rs-features__wrapper">
+						<div class="rs-features__title">
+							<h2>Почему стоит заказать <br> шеф-монтаж</h2>
+						</div>
+
+						<div class="rs-features__list">
+							<div class="rs-features__item" data-aos="fade-up" data-aos-delay="100">
+								<h4>Гарантия качества</h4>
+								<p>Все работы выполняются в соответствии с международными стандартами и нормами</p>
+							</div>
+
+							<div class="rs-features__item" data-aos="fade-up" data-aos-delay="200">
+								<h4>Минимизация рисков</h4>
+								<p>Исключаем ошибки и неисправности, которые могут возникнуть при самостоятельном
+									монтаже</p>
+							</div>
+
+							<div class="rs-features__item" data-aos="fade-up" data-aos-delay="300">
+								<h4>Опытные специалисты</h4>
+								<p>Наши инженеры имеют многолетний опыт работы с различными типами оборудования</p>
+							</div>
+
+							<div class="rs-features__item" data-aos="fade-up" data-aos-delay="400">
+								<h4>Сжатые сроки</h4>
+								<p>Мы понимаем важность минимизации простоев и выполняем работы максимально оперативно
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-steps">
+				<div class="rs-steps__container">
+					<div class="rs-steps__content">
+						<div class="section__header">
+							<div class="section__header_title">
+								<h2>Что входит в услугу?</h2>
+							</div>
+						</div>
+
+						<div class="rs-steps__wrapper">
+							<div class="rs-steps__list" data-aos="fade-up" data-aos-delay="200">
+								<ul>
+									<li>Координация монтажа на площадке заказчика</li>
+									<li>Контроль сборки и установки оборудования</li>
+									<li>Проверка соответствия условий эксплуатации требованиям производителя</li>
+									<li>Проведение параметрических замеров и тестирования оборудования</li>
+									<li>Наладка и запуск в эксплуатацию</li>
+									<li>Обучение персонала заказчика работе с оборудованием</li>
+									<li>Выдача технического заключения и рекомендаций по дальнейшему обслуживанию</li>
+								</ul>
+							</div>
+
+							<div class="rs-steps__img" data-aos="fade-up" data-aos-delay="100">
+								<img src="./img/blocks/steps/steps_img-1.jpg" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="rs-form">
+				<div class="rs-form__container">
+					<div class="rs-form__wrapper">
+						<div class="rs-form__bg">
+							<img src="./img/blocks/form/form_bg-1.jpg" alt="">
+						</div>
+						<div class="section__header">
+							<div class="section__header_title">
+								<h2>Хотите заказать доставку?</h2>
+								<p>Оставьте заявку, и наш специалист свяжется с вами в ближайшее время!</p>
+							</div>
+						</div>
+
+						<div class="rs-form__form form" data-aos="fade-up" data-aos-delay="100">
+							<form action="#" class="form__form">
+								<div class="form__wrapper">
+									<div class="form__block">
+										<div class="form__line">
+											<input autocomplete="off" type="text" name="form[]" required
+												placeholder="Имя" class="rs-input">
+										</div>
+										<div class="form__line">
+											<input autocomplete="off" type="email" name="form[]" required
+												placeholder="E-mail" class="rs-input">
+										</div>
+										<div class="form__line">
+											<input autocomplete="off" type="tel" name="form[]" required
+												placeholder="Телефон" class="rs-input">
+										</div>
+										<div class="form__line">
+											<textarea autocomplete="off" name="form[]" placeholder="Сообщение"
+												class="rs-input"></textarea>
+										</div>
+										<div class="form__footer">
+											<div class="form__agreement">Нажимая кнопку «Отправить» вы даете свое
+												согласие на обработку ваших персональных данных в соответствии с <a
+													href="#">пользовательским соглашением</a></div>
+											<div class="form__button">
+												<button type="submit" class="rs-btn _btn-tertiary">
+													Отправить
+													<svg viewBox="0 0 30 30" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<path
+															d="M8.42462 22.981L23.981 7.42467M23.981 7.42467H9.13173M23.981 7.42467V22.2739"
+															stroke-linecap="round" stroke-linejoin="round" />
+													</svg>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<link rel="stylesheet" href="css/rs-footer.css" />
+		<footer>
+			<div class="rs-footer">
+				<div class="rs-footer__wrapper">
+					<div class="rs-footer__container">
+						<div class="rs-footer__block">
+							<div class="rs-footer__menu">
+								<div class="rs-footer__spollers">
+									<div class="rs-footer__spollers_item">
+										<h5 class="rs-footer__spollers_title">Каталог</h5>
+										<div class="rs-footer__spollers_body">
+											<ul>
+												<li><a href="#">Кабельно-проводниковая продукция</a></li>
+												<li><a href="#">Силовые трансформаторы</a></li>
+												<li><a href="#">Автотрансформаторы</a></li>
+												<li><a href="#">Арматура СИП</a></li>
+												<li><a href="#">Арматура ВЛ</a></li>
+												<li><a href="#">Опоры (ЖБ и деревянные)</a></li>
+												<li><a href="#">КТП, СТП, МТП</a></li>
+												<li><a href="#">ИБП</a></li>
+												<li><a href="#">ИТКЗ</a></li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="rs-footer__spollers_item">
+										<h5 class="rs-footer__spollers_title">Меню сайта</h5>
+										<div class="rs-footer__spollers_body">
+											<ul>
+												<li><a href="#">Главная</a></li>
+												<li><a href="#">Услуги</a></li>
+												<li><a href="#">О компании</a></li>
+												<li><a href="#">Оплата и доставка</a></li>
+												<li><a href="#">Новости</a></li>
+												<li><a href="#">Контакты</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+								<div class="rs-footer__bottom">
+									<div class="rs-footer__copyright">
+										© ООО «Контаком» 2024. Все права защищены.
+									</div>
+									<div class="rs-footer__dev">
+										<a href="#">Разработано в Россайт</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="rs-footer__contact">
+								<div class="rs-footer__contact_body">
+									<h5>Контактная информация</h5>
+									<ul>
+										<li><a href="tel:78129281555">+7 (812) 928-15-55</a></li>
+										<li><a href="mailto:office@ktk.energy">office@ktk.energy</a></li>
+										<li>Пн-Пт с 9:00 до 18:00</li>
+										<li>191123, г. Санкт-Петербург, ул. Радищева, д. 39Д, офис 324</li>
+									</ul>
+								</div>
+
+								<div class="rs-footer__contact_btn">
+									<a href="#" class="rs-btn _btn-white-border">
+										Вверх старницы
+										<svg viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M14.9999 26L14.9999 4M14.9999 4L4.49994 14.5M14.9999 4L25.4999 14.5"
+												stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+	<script src="lib/swiper/swiper-bundle.min.js"></script>
+	<script src="js/rs-sliders-init.js"></script>
+	<script src="lib/aos/aos.js"></script>
+	<script>AOS.init({ duration: 500, easing: "ease-out-quart", once: true });</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js"></script>
+	<script>SmoothScroll({ animationTime: 600, stepSize: 100, accelerationDelta: 50, accelerationMax: 3, })</script>
+	<script src="js/rs-services.js"></script>
+	<script src="js/rs-script.js"></script>
+
+</body>
+
+</html>
